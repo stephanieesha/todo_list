@@ -1,0 +1,12 @@
+.container{
+    background-color: #E6E6FA;
+}
+.not_done{
+    background-color:#CD853F ;
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.completed{
+    background-color:#8FBC8F ;
+}
