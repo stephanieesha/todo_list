@@ -25,6 +25,7 @@ function input_list(){
     var get_input = document.getElementById('ddd').value;
     var add_li = document.createTextNode(get_input);
     li.appendChild(add_li);
+    
 
     if(get_input === ''){
         alert("You haven't entered a TODO!");
@@ -42,9 +43,10 @@ function input_list(){
     close_button.appendChild(x);
     li.appendChild(close_button); 
 
-    // close_button.addEventListener("click", function _closed(){
-    //     delete li;
-    // })
+    //remove a todo
+    close_button.addEventListener("click", function _closed(){
+       li.parentElement.removeChild(li) ;
+    })
 
   
     //checkbox
@@ -52,9 +54,9 @@ function input_list(){
     var _box = document.createElement("INPUT");
     _box.setAttribute("type", "checkbox");
     check_box.appendChild(_box);
+    li.insertBefore(check_box, li.childNodes[0]);
 
     //move todo to completed when checkbox is checked
-    li.insertBefore(check_box, li.childNodes[0]);
     check_box.addEventListener("click", function _checked(){
         if(_box.checked === true){
             var new_li = document.createElement("li");
@@ -62,6 +64,9 @@ function input_list(){
             var add_new_li = document.createTextNode(the_input);
             new_li.appendChild(add_new_li);
             document.getElementById('completed_list').appendChild(new_li);
+        }
+        else{
+           document.getElementById('completed_list').remove(new_li);
         }
         
     });
